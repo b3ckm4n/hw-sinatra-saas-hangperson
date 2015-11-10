@@ -17,7 +17,7 @@ class HangpersonGame
   end
   
   def guess(letter)
-    if (letter =~ /\W/i || letter == '' || letter.nil?)
+    if (letter =~ /[^a-zA-Z]/i || letter == '' || letter.nil?)
       raise ArgumentError
     elsif @word.include?(letter.downcase) && !(@guesses.include?(letter.downcase))
       @guesses.insert(-1,letter.downcase)
