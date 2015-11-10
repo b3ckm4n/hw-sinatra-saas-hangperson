@@ -14,7 +14,6 @@ class HangpersonGame
     @word = word
     @guesses = ""
     @wrong_guesses = ""
-    @word_characters = @word.chomp.downcase.split(//)
   end
   
   def guess(letter)
