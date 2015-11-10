@@ -40,8 +40,8 @@ class HangpersonApp < Sinatra::Base
   post '/guess' do
     letter = params[:guess].to_s[0]
     result = @game.guess(letter)
-    flash[:message] = "You have already used that letter" unless result != false
-    flash[:message] = "Invalid guess" unless !result.nil?
+    flash[:message] = "You have already used that letter." unless result != false
+    flash[:message] = "Invalid guess." unless result =~ /[^a-zA-Z]/ig
     
     status = @game.check_win_or_lose()
     if status == :win
